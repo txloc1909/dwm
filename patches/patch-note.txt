@@ -2,3 +2,4 @@ Patch list, in order of applying:
 1. restartsig (manual)
 2. attachasideandbelow (auto)
 3. movestack (manual)
+4. focusonclick (manual)
