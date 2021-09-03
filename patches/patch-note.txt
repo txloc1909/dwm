@@ -4,3 +4,4 @@ Patch list, in order of applying:
 3. movestack (manual)
 4. focusonclick (manual)
 5. cool autostart (manual)
+6. systray (manual)
