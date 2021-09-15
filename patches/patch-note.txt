@@ -6,3 +6,4 @@ Patch list, in order of applying:
 5. cool autostart (manual)
 6. systray (manual)
 7. bar height (manual)
+8. active tag indicator bar (auto) (with some minor tweak)
