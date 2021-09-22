@@ -8,3 +8,4 @@ Patch list, in order of applying:
 7. bar height (manual)
 8. active tag indicator bar (auto) (with some minor tweak)
 9. winicon (manual) (require imlib2/libimlib2-dev)
+10. deck (auto)
