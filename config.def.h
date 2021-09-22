@@ -11,6 +11,8 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 20;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+#define ICONSIZE (bh - 6)                       /* icon size */
+#define ICONSPACING 5                           /* space between icon and title */
 static const int focusonwheel       = 0;
 static const char *fonts[]          = {"Source Code Pro for Powerline:size=10", "Ubuntu Mono:size=12", "monospace:size=9" };
 static const char dmenufont[]       = "monospace:size=10";
@@ -18,15 +20,18 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+//static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#0c7ecf";
+static const char col_green[]       = "#859900";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_green },
 };
 
 static const char *const autostart[] = {
-    "dwmblocks", NULL,
+    "/home/loctx/.xprofile.dwm", NULL,
+    "slstatus", NULL,
 	NULL /* terminate */
 };
 
@@ -71,8 +76,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", NULL };
+//static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -80,6 +87,9 @@ static Key keys[] = {
     /* Spawning program                                                 */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+    { MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
+    { MODKEY,                       XK_e,      spawn,          SHCMD("nautilus") },
+    { MODKEY,                       XK_r,      spawn,          SHCMD("rofi -show drun -monitor -4 -show-icons -icons Flat-Remix-Blue-Dark -theme ~/.config/rofi/themes/dt-center.rasi") },
 
     /* Appearance                                                       */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
