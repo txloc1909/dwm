@@ -3,6 +3,11 @@
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -52,8 +57,12 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.525;/* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+
+#define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
+#include "vanitygaps.c"
+
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -94,6 +103,11 @@ static Key keys[] = {
 
     /* Appearance                                                       */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+    { MODKEY,                       XK_a,      defaultgaps,    {0} },
+    { MODKEY|ShiftMask,             XK_a,      togglegaps,     {0} },
+    { MODKEY,                       XK_z,      incrgaps,       {.i = -2} },
+    { MODKEY,                       XK_x,      incrgaps,       {.i = +2} },
+
 
     /* Window manipulation                                              */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -108,6 +122,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Left,   setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_Right,  setmfact,       {.f = +0.05} },
+
+	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+	{ MODKEY|ShiftMask,             XK_Left,   setcfact,       {.f = +0.25} },
+	{ MODKEY|ShiftMask,             XK_Right,  setcfact,       {.f = -0.25} },
+	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 
  	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
  	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },

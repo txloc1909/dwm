@@ -9,3 +9,9 @@ Patch list, in order of applying:
 8. active tag indicator bar (auto) (with some minor tweak)
 9. winicon (manual) (require imlib2/libimlib2-dev)
 10. deck (auto)
+11. vanitygaps & cfacts (manual)
+    Notes:
+    * Remove unused layouts
+    * Remove unused gaps function
+    * Remove tile() and deck() function (or any current layout function) from dwm.c
+    * Now all layout functions are defined in vanitygaps.c
