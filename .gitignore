@@ -1,5 +1,2 @@
 *.o
 dwm
-
-config.h
-config.def.h.bak
