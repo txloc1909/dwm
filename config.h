@@ -137,6 +137,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_Down,   movestack,      {.i = +1 } },
     { MODKEY|ShiftMask,             XK_Up,     movestack,      {.i = -1 } },
 
+    { MODKEY,                       XK_f,      togglefullscr,  {0} },
     { MODKEY,                       XK_p,      togglefloating, {0} },
     { MODKEY,                       XK_u,      zoom,           {0} },                   // promote current window as master
     { MODKEY,                       XK_q,      killclient,     {0} },

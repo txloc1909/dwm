@@ -15,3 +15,5 @@ Patch list, in order of applying:
     * Remove unused gaps function
     * Remove tile() and deck() function (or any current layout function) from dwm.c
     * Now all layout functions are defined in vanitygaps.c
+    * Use centeredmaster & centeredfloatingmaster
+12. actualfullscreen (manual)
