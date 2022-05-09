@@ -92,16 +92,15 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-//static const char *termcmd[]  = { "st", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
     /* modifier                     key        function        argument */
     /* Spawning program                                                 */
-    { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
+    { MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
     { MODKEY,                       XK_e,      spawn,          SHCMD("thunar") },
     { MODKEY,                       XK_r,      spawn,          SHCMD("rofi -show drun -monitor -4 -show-icons -icons Flat-Remix-Blue-Dark -theme ~/.config/rofi/themes/dt-center.rasi") },
 
@@ -109,8 +108,8 @@ static Key keys[] = {
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_a,      defaultgaps,    {0} },
     { MODKEY|ShiftMask,             XK_a,      togglegaps,     {0} },
-    { MODKEY,                       XK_z,      incrgaps,       {.i = -2} },
-    { MODKEY,                       XK_x,      incrgaps,       {.i = +2} },
+    { MODKEY|ShiftMask,             XK_z,      incrgaps,       {.i = -2} },
+    { MODKEY|ShiftMask,             XK_x,      incrgaps,       {.i = +2} },
 
 
     /* Window manipulation                                              */
@@ -119,8 +118,8 @@ static Key keys[] = {
     { MODKEY,                       XK_Down,   focusstack,     {.i = +1 } },
     { MODKEY,                       XK_Up,     focusstack,     {.i = -1 } },
 
-    { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-    { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_equal,  incnmaster,     {.i = +1 } },            // increase number of masters
+    { MODKEY|ShiftMask,             XK_minus,  incnmaster,     {.i = -1 } },            // decrease number of masters
 
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -131,27 +130,28 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
     { MODKEY|ShiftMask,             XK_Left,   setcfact,       {.f = +0.25} },
     { MODKEY|ShiftMask,             XK_Right,  setcfact,       {.f = -0.25} },
-    { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+    { MODKEY|ShiftMask,             XK_n,      setcfact,       {.f =  0.00} },          // reset cfacts of all slave windows
 
     { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
     { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
     { MODKEY|ShiftMask,             XK_Down,   movestack,      {.i = +1 } },
     { MODKEY|ShiftMask,             XK_Up,     movestack,      {.i = -1 } },
 
-    { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-    { MODKEY|ShiftMask,             XK_Return, zoom,           {0} },                   // promote current window as master
+    { MODKEY,                       XK_p,      togglefloating, {0} },
+    { MODKEY,                       XK_u,      zoom,           {0} },                   // promote current window as master
     { MODKEY,                       XK_q,      killclient,     {0} },
 
     /* Layouts                                                          */
     { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },    // tile
-    { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },    // floating
+    { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },    // floating
     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },    // monocle
     { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },    // deck
     { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[4]} },    // centermaster
-    { MODKEY,                       XK_v,      setlayout,      {.v = &layouts[5]} },    // centeredfloatingmaster
-    { MODKEY,                       XK_n,      setlayout,      {0} },                   // toggle between 2 recent layouts
+    { MODKEY,                       XK_z,      setlayout,      {.v = &layouts[5]} },    // centeredfloatingmaster
+    { MODKEY,                       XK_Tab,    setlayout,      {0} },                   // toggle between 2 recent layouts
 
     /* Tags                                                             */
+    { ALTKEY,                       XK_Tab,    view,           {0} },                   // toggle between 2 recent tagsets
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
     TAGKEYS(                        XK_1,                      0)
