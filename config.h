@@ -72,6 +72,8 @@ static const Layout layouts[] = {
     { "><>",      NULL },    /* no layout function means floating behavior */
     { "[M]",      monocle },
     { "[D]",      deck },
+    { "|M|",      centeredmaster },
+    { ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -141,12 +143,13 @@ static Key keys[] = {
     { MODKEY,                       XK_q,      killclient,     {0} },
 
     /* Layouts                                                          */
-    { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-    { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-    { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-    { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
-    { MODKEY,                       XK_Tab,    view,           {0} },                   // toggle between 2 recent tagsets
-    //{ MODKEY,                       XK_space,  setlayout,      {0} },
+    { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },    // tile
+    { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },    // floating
+    { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },    // monocle
+    { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },    // deck
+    { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[4]} },    // centermaster
+    { MODKEY,                       XK_v,      setlayout,      {.v = &layouts[5]} },    // centeredfloatingmaster
+    { MODKEY,                       XK_n,      setlayout,      {0} },                   // toggle between 2 recent layouts
 
     /* Tags                                                             */
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
