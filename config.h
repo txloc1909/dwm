@@ -39,6 +39,11 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
     "slstatus", NULL,
+    "nm-applet", NULL,
+    "volumeicon", NULL,
+    "nitrogen", "--restore", NULL,
+    "dunst", NULL,
+    "/usr/bin/gnome-keyring-daemon", "--start", "--component=ssh", NULL,
     NULL /* terminate */
 };
 
@@ -83,7 +88,7 @@ static const Layout layouts[] = {
     { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
     { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-    { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+    { MODKEY|ALTKEY,                KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -101,7 +106,7 @@ static Key keys[] = {
     { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
-    { MODKEY,                       XK_e,      spawn,          SHCMD("thunar") },
+    { MODKEY,                       XK_e,      spawn,          SHCMD("nemo") },
     { MODKEY,                       XK_r,      spawn,          SHCMD("rofi -show drun -monitor -4 -show-icons -icons Flat-Remix-Blue-Dark -theme ~/.config/rofi/themes/dt-center.rasi") },
 
     /* Appearance                                                       */
