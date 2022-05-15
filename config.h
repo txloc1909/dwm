@@ -145,6 +145,7 @@ static Key keys[] = {
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
     { MODKEY,                       XK_p,      togglefloating, {0} },
     { MODKEY,                       XK_u,      zoom,           {0} },                   // promote current window as master
+    { MODKEY,                       XK_i,      switchcol,      {0} },
     { MODKEY,                       XK_q,      killclient,     {0} },
 
     /* Layouts                                                          */

@@ -17,3 +17,4 @@ Patch list, in order of applying:
     * Now all layout functions are defined in vanitygaps.c
     * Use centeredmaster & centeredfloatingmaster
 12. actualfullscreen (manual)
+13. switchcol (manual)
