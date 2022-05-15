@@ -121,27 +121,19 @@ static Key keys[] = {
     /* Window manipulation                                              */
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-    { MODKEY,                       XK_Down,   focusstack,     {.i = +1 } },
-    { MODKEY,                       XK_Up,     focusstack,     {.i = -1 } },
-
-    { MODKEY|ShiftMask,             XK_equal,  incnmaster,     {.i = +1 } },            // increase number of masters
-    { MODKEY|ShiftMask,             XK_minus,  incnmaster,     {.i = -1 } },            // decrease number of masters
 
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-    { MODKEY,                       XK_Left,   setmfact,       {.f = -0.05} },
-    { MODKEY,                       XK_Right,  setmfact,       {.f = +0.05} },
 
     { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
     { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-    { MODKEY|ShiftMask,             XK_Left,   setcfact,       {.f = +0.25} },
-    { MODKEY|ShiftMask,             XK_Right,  setcfact,       {.f = -0.25} },
     { MODKEY|ShiftMask,             XK_n,      setcfact,       {.f =  0.00} },          // reset cfacts of all slave windows
 
     { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
     { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
-    { MODKEY|ShiftMask,             XK_Down,   movestack,      {.i = +1 } },
-    { MODKEY|ShiftMask,             XK_Up,     movestack,      {.i = -1 } },
+
+    { MODKEY|ShiftMask,             XK_equal,  incnmaster,     {.i = +1 } },            // increase number of masters
+    { MODKEY|ShiftMask,             XK_minus,  incnmaster,     {.i = -1 } },            // decrease number of masters
 
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
     { MODKEY,                       XK_p,      togglefloating, {0} },
