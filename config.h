@@ -38,6 +38,9 @@ static const char *colors[][3]      = {
     [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
+static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
+
 static const char *const autostart[] = {
     "slstatus", NULL,
     "nm-applet", NULL,
@@ -137,6 +140,7 @@ static Key keys[] = {
 
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
     { MODKEY,                       XK_p,      togglefloating, {0} },
+    { MODKEY,                       XK_s,      togglesticky,   {0} },
     { MODKEY,                       XK_u,      zoom,           {0} },                   // promote current window as master
     { MODKEY,                       XK_i,      switchcol,      {0} },
     { MODKEY,                       XK_q,      killclient,     {0} },
