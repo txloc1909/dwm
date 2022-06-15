@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 6;        /* horiz inner gap between windows */
 static const unsigned int gappiv    = 6;        /* vert inner gap between windows */
@@ -17,11 +17,13 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 24;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 #define ICONSIZE (bh - 6)                       /* icon size */
-#define ICONSPACING 5                           /* space between icon and title */
+#define ICONSPACING 6                           /* space between icon and title */
 static const int focusonwheel       = 0;
 static const char *fonts[]          = {
     "Source Code Pro for Powerline:size=10",
     "Ubuntu Mono:size=12",
+    "NotoColorEmoji:size=10:antialias=true:autohint=true",
+    "NotoEmoji:size=10",
     "monospace:size=9",
 };
 static const char dmenufont[]       = "monospace:size=10";
@@ -31,11 +33,11 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char col_blue[]        = "#034685";
-static const char col_green[]       = "#859900";
+static const char col_green[]       = "#a6e22e";
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-    [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+    [SchemeSel]  = { col_gray4, col_cyan,  col_green },
 };
 
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
