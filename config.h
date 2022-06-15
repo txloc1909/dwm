@@ -64,9 +64,15 @@ static const Rule rules[] = {
      *  WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    { NULL,       NULL,       NULL,       0,            0,           -1 },
-    //{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-    //{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+    { "firefox",  NULL,       NULL,       1,            0,           -1 },
+    { "Zathura",  "org.pwmt.zathura", NULL, 1,          0,           -1 },
+    { "Brave-browser", "youtube.com", NULL, 1 << 7,     0,           -1 },
+    { "Spotify",  "spotify",  "Spotify",  1 << 7,       0,           -1 },
+    { "Brave-browser", "brave-browser", NULL, 1 << 8,   0,           -1 },
+    { "Ferdi",    "ferdi",    NULL,       1 << 8,       0,           -1 },
+
+    //{ NULL,       NULL,       NULL,       0,            0,           -1 },
+
 };
 
 /* layout(s) */
