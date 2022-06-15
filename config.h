@@ -116,12 +116,16 @@ static const char *termcmd[]  = { "alacritty", NULL };
 #include "movestack.c"
 static Key keys[] = {
     /* modifier                     key        function        argument */
+
     /* Spawning program                                                 */
+    /* Already defined in sxhkd, lists here to avoid overriding
     { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
     { MODKEY,                       XK_e,      spawn,          SHCMD("nemo") },
-    { MODKEY,                       XK_r,      spawn,          SHCMD("rofi -show drun -monitor -4 -show-icons -icons Flat-Remix-Blue-Dark -theme ~/.config/rofi/themes/dt-center.rasi") },
+    { MODKEY,                       XK_r,      spawn,          SHCMD("rofi -show drun -monitor -1") },
+    { MODKEY,                       XK_y,      spawn,          SHCMD("youtube") },
+    */
 
     /* Appearance                                                       */
     { MODKEY,                       XK_b,      togglebar,      {0} },
@@ -159,13 +163,13 @@ static Key keys[] = {
     { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },    // tile
     { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },    // floating
     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },    // monocle
-    { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },    // deck
-    { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[4]} },    // centermaster
-    { MODKEY,                       XK_z,      setlayout,      {.v = &layouts[5]} },    // centeredfloatingmaster
+    { MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[3]} },    // deck
+    { MODKEY|ShiftMask,             XK_c,      setlayout,      {.v = &layouts[4]} },    // centermaster
+    { MODKEY,                       XK_c,      setlayout,      {.v = &layouts[5]} },    // centeredfloatingmaster
     { MODKEY,                       XK_Tab,    setlayout,      {0} },                   // toggle between 2 recent layouts
 
     /* Tags                                                             */
-    { ALTKEY,                       XK_Tab,    view,           {0} },                   // toggle between 2 recent tagsets
+    { ALTKEY,                       XK_space,  view,           {0} },                   // toggle between 2 recent tagsets
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
     TAGKEYS(                        XK_1,                      0)
@@ -185,8 +189,9 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
     /* Quit & restart                                                   */
-    { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { MODKEY|ShiftMask,             XK_r,      quit,           {1} }, // restart
+    { MODKEY|ShiftMask,             XK_q,      quit,           {0} },                   // quit dwm (logout)
+    { MODKEY|ShiftMask,             XK_r,      quit,           {1} },                   // restart dwm
+    { MODKEY|ALTKEY,                XK_l,      spawn,          SHCMD("slock"), }        // lock screen
 };
 
 /* button definitions */
