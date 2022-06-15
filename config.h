@@ -48,8 +48,10 @@ static const char *const autostart[] = {
     "nm-applet", NULL,
     "volumeicon", NULL,
     "nitrogen", "--restore", NULL,
+    "sxhkd", NULL,
+    "picom", NULL,
     "dunst", NULL,
-    "/usr/bin/gnome-keyring-daemon", "--start", "--component=ssh", NULL,
+    "/usr/bin/gnome-keyring-daemon", "--start", NULL,
     NULL /* terminate */
 };
 
