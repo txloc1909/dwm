@@ -21,3 +21,4 @@ Patch list, in order of applying:
 13.5. Remove attachasideandbelow
 14. sticky & stickindicator
 15. fixborders
+16. swapfocus

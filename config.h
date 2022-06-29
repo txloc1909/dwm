@@ -157,6 +157,7 @@ static Key keys[] = {
     { MODKEY,                       XK_s,      togglesticky,   {0} },
     { MODKEY,                       XK_u,      zoom,           {0} },                   // promote current window as master
     { MODKEY,                       XK_i,      switchcol,      {0} },
+    { ALTKEY,                       XK_Tab,    swapfocus,      {0} },                   // toggle between 2 recent windows
     { MODKEY,                       XK_q,      killclient,     {0} },
 
     /* Layouts                                                          */
