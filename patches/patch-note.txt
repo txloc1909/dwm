@@ -22,3 +22,4 @@ Patch list, in order of applying:
 14. sticky & stickindicator
 15. fixborders
 16. swapfocus
+17. combo
