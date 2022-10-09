@@ -1,0 +1,12 @@
+diff --git a/dwm.c b/dwm.c
+index 05ad985..f17159a 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -1727,7 +1727,6 @@ sendmon(Client *c, Monitor *m)
+ 	detach(c);
+ 	detachstack(c);
+ 	c->mon = m;
+-	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+ 	attach(c);
+ 	attachstack(c);
+ 	focus(NULL);
