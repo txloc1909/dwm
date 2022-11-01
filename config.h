@@ -37,7 +37,7 @@ static const char col_green[]       = "#a6e22e";
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-    [SchemeSel]  = { col_gray4, col_cyan,  col_cyan },
+    [SchemeSel]  = { col_gray4, col_cyan,  col_green },
 };
 
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
@@ -115,6 +115,7 @@ static const Layout layouts[] = {
 */
 /* new tagging interface with combo */
 #define TAGKEYS(KEY,TAG) \
+    { ALTKEY|ControlMask,           KEY,      view,           {.ui = 1 << TAG} }, \
     { MODKEY,                       KEY,      comboview,      {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
     { MODKEY|ShiftMask,             KEY,      combotag,       {.ui = 1 << TAG} }, \
@@ -155,9 +156,13 @@ static Key keys[] = {
     /* Window manipulation                                              */
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+    { ALTKEY|ControlMask,           XK_j,      focusstack,     {.i = +1 } },
+    { ALTKEY|ControlMask,           XK_k,      focusstack,     {.i = -1 } },
 
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+    { ALTKEY|ControlMask,           XK_h,      setmfact,       {.f = -0.05} },
+    { ALTKEY|ControlMask,           XK_l,      setmfact,       {.f = +0.05} },
 
     { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
     { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
