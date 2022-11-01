@@ -65,13 +65,20 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     { "firefox",  NULL,       NULL,       1,            0,           -1 },
+    { "alacritty", "local-tmux", NULL,    1 << 1,       0,           -1 },
     { "Zathura",  "org.pwmt.zathura", NULL, 1 << 2,     0,           -1 },
     { "notion-snap", "notion-snap", NULL, 1 << 3,       0,           -1 },
+    { "obsidian", "obsidian", NULL,       1 << 4,       0,           -1 },
+    { "Virt-manager", "virt-manager", NULL, 1 << 5,     0,           -1 },
+    { "Skype",    "skype",    NULL,       1 << 6,       0,           -1 },
+    { "discord",  "discord",  NULL,       1 << 6,       0,           -1 },
+    { "Slack",    "slack",    NULL,       1 << 6,       0,           -1 },
     { "Brave-browser", "youtube.com", NULL, 1 << 7,     0,           -1 },
     { "Spotify",  "spotify",  "Spotify",  1 << 7,       0,           -1 },
     { "Brave-browser", "brave-browser", NULL, 1 << 8,   0,           -1 },
     { "Ferdi",    "ferdi",    NULL,       1 << 8,       0,           -1 },
 
+    { "Galculator", "galculator", NULL,   0,            1,           -1 },
     //{ NULL,       NULL,       NULL,       0,            0,           -1 },
 
 };
